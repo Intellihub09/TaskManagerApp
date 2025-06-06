@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1a1a2e; /* Dark background for the futuristic theme */
+  color: #e0e0e0; /* Light text color */
+  overflow-x: hidden; /* Prevent horizontal scroll on body */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Global Styles & Resets */
+* {
+  box-sizing: border-box;
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(26, 26, 46, 0.6); /* Semi-transparent dark base */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-hover:hover {
+    background: rgba(40, 40, 60, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2), 0 0 10px var(--neon-accent-color);
+}
+
+/* Neon Accent Color - applied dynamically or via specific classes */
+.neon-accent {
+  color: var(--neon-accent-color);
+  text-shadow: 0 0 5px var(--neon-accent-color), 0 0 10px var(--neon-accent-color);
+}
+
+.neon-bg {
+  background-color: var(--neon-accent-color);
+  box-shadow: 0 0 8px var(--neon-accent-color), 0 0 12px var(--neon-accent-color);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 26, 46, 0.5); /* Dark track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-accent-color);
+  border-radius: 10px;
+  border: 2px solid rgba(26, 26, 46, 0.5); /* Creates padding around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00e699; /* Slightly lighter on hover */
+}
+
+/* Basic Button Styling */
+button, input[type="submit"], input[type="button"] {
+  padding: 10px 20px;
+  border: 1px solid var(--neon-accent-color);
+  background-color: transparent;
+  color: var(--neon-accent-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+  background-color: var(--neon-accent-color);
+  color: #1a1a2e; /* Dark text on neon bg */
+  box-shadow: 0 0 10px var(--neon-accent-color);
+}
+
+button.primary {
+  background-color: var(--neon-accent-color);
+  color: #1a1a2e;
+}
+
+button.primary:hover {
+  background-color: #00e699; /* Slightly lighter neon */
+  border-color: #00e699;
+  box-shadow: 0 0 15px var(--neon-accent-color);
+}
+
+/* Input Field Styling */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], textarea, select {
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="date"]:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--neon-accent-color);
+  box-shadow: 0 0 8px var(--neon-accent-color);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300FFAA%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 12px auto;
+  padding-right: 40px; /* Make space for the arrow */
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+
+/* Dark and Light Theme Placeholders (basic) */
+body.light-theme {
+  background-color: #f0f2f5;
+  color: #333;
+}
+body.light-theme .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+body.light-theme .neon-accent {
+  /* Adjust neon for light theme if needed, or keep it vibrant */
+  color: var(--neon-accent-color); 
+  text-shadow: none; /* Neon shadow might be too much on light bg */
+}
+body.light-theme button, body.light-theme input[type="submit"], body.light-theme input[type="button"] {
+    color: var(--neon-accent-color);
+    border-color: var(--neon-accent-color);
+}
+body.light-theme button:hover, body.light-theme input[type="submit"]:hover, body.light-theme input[type="button"]:hover {
+    background-color: var(--neon-accent-color);
+    color: #fff;
+}
+body.light-theme input[type="text"], body.light-theme input[type="email"], body.light-theme input[type="password"], body.light-theme input[type="date"], body.light-theme textarea, body.light-theme select {
+  background-color: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.2);
+  color: #333;
+}
+body.light-theme input[type="text"]:focus, body.light-theme input[type="email"]:focus, body.light-theme input[type="password"]:focus, body.light-theme input[type="date"]:focus, body.light-theme textarea:focus, body.light-theme select:focus {
+  border-color: var(--neon-accent-color);
+  box-shadow: 0 0 8px var(--neon-accent-color);
+}
+
+/* Default to dark theme if no class is set */
+body:not(.light-theme) {
+    /* Styles for dark theme are the default ones at the top */
+}

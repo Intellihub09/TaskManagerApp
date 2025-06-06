@@ -1,0 +1,129 @@
+.calendar-view-container {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: var(--neon-accent-color);
+}
+
+.calendar-nav button {
+    margin: 0 5px;
+    padding: 8px 12px;
+    /* Standard button styles from index.css will apply */
+}
+
+.calendar-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* grid-template-rows: auto repeat(5, 1fr); */ /* Header row + 5 weeks */
+    gap: 1px; /* Creates thin grid lines */
+    background-color: rgba(255, 255, 255, 0.05); /* Grid line color */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden; /* Ensures rounded corners clip content */
+}
+
+.calendar-day-header,
+.calendar-day {
+    padding: 10px;
+    background-color: rgba(26, 26, 46, 0.7); /* Darker cell background */
+    min-height: 100px; /* Minimum height for days */
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-day-header {
+    text-align: center;
+    font-weight: bold;
+    color: #c0c0e0;
+    min-height: auto;
+    padding: 12px 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calendar-day span {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.calendar-day.today span {
+    color: var(--neon-accent-color);
+    text-shadow: 0 0 3px var(--neon-accent-color);
+}
+
+.calendar-day.other-month {
+    opacity: 0.5;
+    background-color: rgba(26, 26, 46, 0.4);
+}
+
+.calendar-day.other-month span {
+    color: #888;
+}
+
+.calendar-tasks {
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 120px; /* Adjust as needed */
+}
+
+.calendar-task-item {
+    font-size: 0.8em;
+    padding: 4px 6px;
+    margin-bottom: 4px;
+    background-color: rgba(0, 255, 170, 0.15); /* Light neon accent bg */
+    border-left: 3px solid var(--neon-accent-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.calendar-task-item:hover {
+    background-color: rgba(0, 255, 170, 0.3);
+}
+
+/* Priority styling for tasks (optional) */
+.calendar-task-item.priority-High {
+    border-left-color: #FF4747; /* Red for High */
+}
+.calendar-task-item.priority-Medium {
+    border-left-color: #FFD700; /* Yellow for Medium */
+}
+.calendar-task-item.priority-Low {
+    border-left-color: #32CD32; /* Green for Low */
+}
+
+@media (max-width: 768px) {
+    .calendar-day-header {
+        font-size: 0.8em;
+        padding: 8px 2px;
+    }
+    .calendar-day {
+        min-height: 80px;
+        padding: 5px;
+    }
+    .calendar-task-item {
+        font-size: 0.7em;
+        padding: 3px 5px;
+    }
+    .calendar-header h2 {
+        font-size: 1.5em;
+    }
+}

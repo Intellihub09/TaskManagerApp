@@ -1,0 +1,169 @@
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    padding: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: width 0.3s ease;
+    position: fixed; /* Fixed position */
+    left: 0;
+    top: 0;
+    z-index: 1000; /* Ensure sidebar is above other content */
+    overflow-x: hidden; /* Hide horizontal scrollbar during transition */
+    /* Glassmorphism from .glass in index.css */
+}
+
+.sidebar.collapsed {
+    width: var(--sidebar-width-collapsed);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center logo when collapsed */
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+.sidebar.collapsed .sidebar-header {
+    padding: 0 10px; /* Adjust padding for collapsed state */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.logo-icon {
+    font-size: 1.8em; /* Slightly larger icon */
+    margin-right: 10px;
+    color: var(--neon-accent-color);
+    transition: margin-right 0.3s ease;
+}
+
+.sidebar.collapsed .logo-icon {
+    margin-right: 0; /* No margin when collapsed */
+}
+
+.logo-text {
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transform: translateX(0);
+}
+
+.sidebar.collapsed .logo-text {
+    opacity: 0;
+    transform: translateX(-20px); /* Slide out effect */
+    pointer-events: none; /* Prevent interaction with hidden text */
+    position: absolute; /* Take out of flow to prevent width issues */
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    flex-grow: 1; /* Allow menu to take available space */
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #b0b0d0; /* Lighter text for nav links */
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide text overflow when collapsing */
+}
+
+.sidebar.collapsed .nav-link {
+    justify-content: center; /* Center icon when collapsed */
+    padding: 15px 10px; /* Adjust padding for icons only */
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(0, 255, 170, 0.1); /* Light neon accent bg */
+    color: var(--neon-accent-color);
+    box-shadow: inset 3px 0 0 var(--neon-accent-color); /* Neon accent left border */
+}
+
+.nav-icon {
+    margin-right: 15px;
+    font-size: 1.3em;
+    transition: margin-right 0.3s ease;
+    min-width: 24px; /* Ensure icon area has consistent width */
+    text-align: center;
+}
+
+.sidebar.collapsed .nav-icon {
+    margin-right: 0;
+}
+
+.nav-text {
+    opacity: 1;
+    transition: opacity 0.2s ease 0.1s, transform 0.2s ease 0.1s;
+    transform: translateX(0);
+}
+
+.sidebar.collapsed .nav-text {
+    opacity: 0;
+    transform: translateX(-15px);
+    pointer-events: none;
+    position: absolute;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    width: 100%;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: #b0b0d0;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align to the right by default */
+    transition: color 0.2s ease;
+}
+
+.sidebar.collapsed .toggle-btn {
+    justify-content: center; /* Center when collapsed */
+}
+
+.toggle-btn:hover {
+    color: var(--neon-accent-color);
+}
+
+/* Responsive: On smaller screens, consider always collapsing the sidebar */
+@media (max-width: 768px) {
+    /* Sidebar is always collapsed on small screens - handled by App.css margin adjustment */
+    /* Ensure the toggle button is still functional and visible */
+    .sidebar {
+        /* Override width to collapsed if not already handled by JS/React state */
+        /* width: var(--sidebar-width-collapsed); */
+    }
+    .sidebar:not(.collapsed) .logo-text,
+    .sidebar:not(.collapsed) .nav-text {
+        /* display: none; */ /* Hide text if sidebar is forced open on small screens */
+    }
+}

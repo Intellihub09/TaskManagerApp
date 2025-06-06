@@ -1,0 +1,35 @@
+.placeholder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    /* Glassmorphism from .glass in index.css */
+}
+
+.placeholder-container h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    /* color: var(--neon-accent-color); */ /* Using header h1 style from App.css */
+}
+
+.placeholder-container p {
+    font-size: 1.1em;
+    color: #b0b0d0;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.placeholder-icon {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: var(--neon-accent-color);
+    opacity: 0.7;
+}
+
+/* Specific styling for Analytics if it uses this placeholder CSS */
+.analytics-container h2 {
+    /* Custom styles for Analytics title if needed, or remove if global is fine */
+}

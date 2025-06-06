@@ -1,0 +1,137 @@
+.notes-section-container {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.notes-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: var(--neon-accent-color);
+}
+
+.add-note-btn {
+    /* Styles from index.css */
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    overflow-y: auto; /* Allow scrolling for notes grid if it overflows */
+    flex-grow: 1; /* Allow grid to take available space */
+    padding-bottom: 10px; /* Padding for scrollbar */
+}
+
+.note-card {
+    /* Glassmorphism from .glass in index.css */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px; /* Minimum height for a note */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-card:hover {
+    transform: translateY(-3px);
+    /* Enhanced shadow from .glass-hover in index.css */
+}
+
+.note-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.note-card-header input[type="text"] {
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 5px 0;
+    width: calc(100% - 30px); /* Adjust width to leave space for delete icon */
+}
+.note-card-header input[type="text"]:focus {
+    box-shadow: none;
+    border-bottom: 1px solid var(--neon-accent-color);
+}
+
+.note-card-header .delete-note-btn {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 5px;
+}
+
+.note-card-header .delete-note-btn:hover {
+    color: #FF4747; /* Red for delete */
+}
+
+.note-card textarea {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: #c0c0d0;
+    font-size: 0.95em;
+    line-height: 1.5;
+    resize: none; /* Prevent manual resizing */
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+.note-card textarea:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.note-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.note-card-footer .timestamp {
+    /* Style for timestamp */
+}
+
+.note-card-footer .color-picker input[type="color"] {
+    width: 25px;
+    height: 25px;
+    border: none;
+    padding: 0;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Modal for new note - if implemented */
+.new-note-modal .modal-content {
+    /* Standard modal styles */
+}
+
+.new-note-modal input[type="text"],
+.new-note-modal textarea {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+    .notes-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
